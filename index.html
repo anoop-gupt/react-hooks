@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>React Hooks</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css">
+    <!-- formats :-) -->
+    <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.css"-->
+    <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/black.css"-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/night.css">
+    <link rel="stylesheet" href="../css/custom.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2 style="line-height: 2em">
+                <img src="img/logo.png" style="display: inline-block; box-shadow: none; border: none; height: 1.5em; vertical-align: middle; background: rgba(0, 0, 0, 0)">
+                Hooks
+            </h2>
+            <p>No more class components?</p>
+            
+        </section>
+        <section>
+            <h3>Why?</h3>
+            <ul>
+                <li>Classes, apparently hard to comprehend (this)</li>
+                <li>"Side effect-hell" - unrelated logic for components</li>
+                <li>Simplifies splitting components in smaller functions for simplicity (SRP)</li>
+                <li>"Backwards" compatible</li>
+                <li>✅ Safe - it won't trigger reload of component tree (given?)</li>
+            </ul>
+        </section>
+        <section>
+            <section class="small">
+                <h3>Basic hooks</h3>
+                <ul>
+                    <li>
+                        <p><a href="#basic-hooks">Basic</a></p>
+                        <ul>
+                            <li><a href="#usestate"><code>useState</code></a></li>
+                            <li><a href="#useeffect"><code>useEffect</code></a></li>
+                            <li><a href="#usecontext"><code>useContext</code></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><a href="#additional-hooks">Additional</a></p>
+                        <ul>
+                            <li><a href="#usereducer"><code>useReducer</code></a></li>
+                            <li><a href="#usecallback"><code>useCallback</code></a></li>
+                            <li><a href="#usememo"><code>useMemo</code></a></li>
+                            <li><a href="#useref"><code>useRef</code></a></li>
+                            <li><a href="#useimperativehandle"><code>useImperativeHandle</code></a></li>
+                            <li><a href="#uselayouteffect"><code>useLayoutEffect</code></a></li>
+                            <li><a href="#usedebugvalue"><code>useDebugValue</code></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Most of these may be lazy initialized 😴</p>
+            </section>
+            <section class="small">
+                <h4>Basic hooks</h4>
+                <div>
+                    <pre>useState</pre>
+                    <span>
+                        Simplest type. It basically initially sets a state variable, returns this and also contains a method for updating.
+                    </span>
+                    <code class="di small">const [count, setCount] = useState(initialCount); setCount(prevCount => prevCount + 1)}</code>
+                </div>
+                <div>
+                    <pre>useEffect</pre>
+                    <p>
+
+                    </p>
+                </div>
+                <div>
+                    <pre>useContext</pre>
+                    <span>
+                        Allows for using existing consumers and providers in the context api
+                    </span>
+                    <code class="di small">const value = useContext(MyContext);</code>
+                </div>
+            </section>
+            <section>
+                <h4>Can I declare my own? Why, yes you can 😊</h4>
+                <ul>
+                    <li>Convention: Always start the hooks function with <code>use<?> => useMyCoolState()</code></li>
+                    <li></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <ul>
+                <li><a href="https://reactjs.org/docs/hooks-intro.html">React docs</a></li>
+                <li><a href="https://nikgraf.github.io/react-hooks/">List of hooks</a></li>
+            </ul>
+        </section>
+        <section>
+            <section><h3>In essence..</h3></section>
+            <section>
+                <ul>
+                    <li><strong>Similar</strong> to how it works for classes</li>
+                    <li>Can have <strong>state in functions</strong></li>
+                    <li>Can make <strong>your own</strong> hooks - to be shared between components</li>
+                    <li>Only define hooks on <strong>top level</strong> of functions</li>
+                    <li>Only works in <strong>functional components</strong></li>
+                    <li>Don't use hooks outside of React...</li>
+                    <li>..also; state is not shared between hooks of the same kind - as each <strong>call</strong> to them will be isolated 😊</li>
+                </ul>
+            </section>
+            <section>
+                <p>⚔️ Use the <span class="text-strike">force</span> eslinter, Luke ⚔️</p>
+                <p>
+                    <small>
+                        <pre><code>yarn add eslint-plugin-react-hooks</code></pre>
+                    </small>
+                </p>
+                <p>
+                    <small><pre><code>// @package.json => (in the eslint-section)
+{
+  "plugins": [
+    // ...
+    "react-hooks"
+  ],
+  "rules": {
+    // ...
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+  }
+}
+                </code></pre>
+                    </small>
+                </p>
+            </section>
+        </section>
+        <section class="small">
+            <h1>Conclusion</h1>
+            <p>It is mosdef worth looking into..</p>
+        </section>
+
+        <section class="small">
+            <h3>questions, questions, questions</h3>
+            <p>
+                <small>
+                    <small>Complete source available on <a href="https://github.com/vegaasen/presentations">@github</a></small>
+                </small>
+            </p>
+        </section>
+    </div>
+
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+  Reveal.initialize({
+    width: 1150,
+    height: 700,
+    controls: true,
+    progress: true,
+    slideNumber: true,
+    history: true,
+    keyboard: true,
+    overview: true,
+    center: true,
+    touch: true,
+    loop: false,
+    rtl: false,
+    shuffle: false,
+    fragments: true,
+    embedded: false,
+    help: true,
+    showNotes: false,
+    autoSlide: 0,
+    autoSlideStoppable: true,
+    autoSlideMethod: Reveal.navigateNext,
+    mouseWheel: false,
+    hideAddressBar: true,
+    previewLinks: false,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    transitionSpeed: 'default', // default/fast/slow
+    backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+    viewDistance: 3,
+    parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+    parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+    // Number of pixels to move the parallax background per slide
+    // - Calculated automatically unless specified
+    // - Set to 0 to disable movement along an axis
+    parallaxBackgroundHorizontal: null,
+    parallaxBackgroundVertical: null
+
+  });
+</script>
+</body>
+</html>
